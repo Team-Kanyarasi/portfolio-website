@@ -39,15 +39,15 @@ export default function Contact() {
 
   if (submitted) {
     return (
-      <Flex direction="column" fillWidth paddingTop="l" paddingX="l" gap="xl" alignItems="center">
+      <Flex direction="column" fillWidth paddingTop="l" paddingX="l" gap="xl" align="center">
         <Card
           padding="xl"
           fillWidth
-          maxWidth="640"
+          maxWidth={640}
           border="brand-medium"
-          borderStyle="solid-1"
+          borderStyle="solid"
           radius="l"
-          background="brand-background-weak"
+          background="brand-weak"
         >
           <Flex direction="column" gap="l" horizontal="center">
             <Icon name="check" size="xl" color="brand-on-background-strong" />
@@ -83,7 +83,7 @@ export default function Contact() {
           padding="xl"
           fillWidth
           border="neutral-medium"
-          borderStyle="solid-1"
+          borderStyle="solid"
           radius="l"
         >
           <form onSubmit={handleSubmit}>
@@ -197,7 +197,7 @@ export default function Contact() {
             padding="xl"
             fillWidth
             border="neutral-medium"
-            borderStyle="solid-1"
+            borderStyle="solid"
             radius="l"
           >
             <Flex direction="column" gap="l" fillWidth>
@@ -261,7 +261,7 @@ export default function Contact() {
             padding="xl"
             fillWidth
             border="neutral-medium"
-            borderStyle="solid-1"
+            borderStyle="solid"
             radius="l"
           >
             <Flex direction="column" gap="m" fillWidth>
@@ -282,7 +282,7 @@ export default function Contact() {
             padding="xl"
             fillWidth
             border="accent-medium"
-            borderStyle="solid-1"
+            borderStyle="solid"
             radius="l"
             background="accent-background-weak"
           >

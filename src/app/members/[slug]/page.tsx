@@ -15,10 +15,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  const { slug } = await params;
   const allMembersData = getPosts(['src', 'content', 'members']);
-  const memberData = allMembersData.find((member) => member.slug === params.slug);
+  const memberData = allMembersData.find((member) => member.slug === slug);
 
   if (!memberData) {
     notFound();
@@ -28,17 +29,18 @@ export async function generateMetadata({
     title: memberData.metadata.title,
     description: memberData.metadata.summary,
     baseURL: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
-    path: `/members/${params.slug}`,
+    path: `/members/${slug}`,
   });
 }
 
 export default async function MemberPortfolioPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
   const allMembersData = getPosts(['src', 'content', 'members']);
-  const memberData = allMembersData.find((member) => member.slug === params.slug);
+  const memberData = allMembersData.find((member) => member.slug === slug);
 
   if (!memberData) {
     notFound();

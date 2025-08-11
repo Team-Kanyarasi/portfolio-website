@@ -1,14 +1,10 @@
-"use client";
-
-import { useState } from "react";
-import { Column, Heading, Schema, Row, Button, Input } from "@once-ui-system/core";
+import { Column, Heading, Schema } from "@once-ui-system/core";
 import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL, blog, team, newsletter } from "@/resources";
 
-export default function Blog({ initialPosts }: { initialPosts: any[] }) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState<"newest" | "oldest">("newest"); // State for sorting
+export default function Blog() {
+  const initialPosts: any[] = []; // Empty array for now since no posts exist
 
   return (
     <Column maxWidth="s">
@@ -29,32 +25,10 @@ export default function Blog({ initialPosts }: { initialPosts: any[] }) {
         {blog.title}
       </Heading>
 
-      <Row gap="8" marginBottom="l" fillWidth>
-        <Input
-          placeholder="Search blog posts..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          fillWidth
-        />
-        <Button
-          onClick={() => setSortBy("newest")}
-          variant={sortBy === "newest" ? "primary" : "tertiary"}
-        >
-          Newest
-        </Button>
-        <Button
-          onClick={() => setSortBy("oldest")}
-          variant={sortBy === "oldest" ? "primary" : "tertiary"}
-        >
-          Oldest
-        </Button>
-      </Row>
-
       <Column fillWidth flex={1}>
-        {/* Pass searchTerm and sortBy to Posts component */}
-        <Posts posts={initialPosts} searchTerm={searchTerm} sortBy={sortBy} range={[1,1]} thumbnail direction="column"/>
-        <Posts posts={initialPosts} searchTerm={searchTerm} sortBy={sortBy} range={[2,3]} thumbnail/>
-        <Posts posts={initialPosts} searchTerm={searchTerm} sortBy={sortBy} range={[4]} columns="2"/>
+        <Posts posts={initialPosts} searchTerm="" sortBy="newest" range={[1,1]} thumbnail direction="column"/>
+        <Posts posts={initialPosts} searchTerm="" sortBy="newest" range={[2,3]} thumbnail/>
+        <Posts posts={initialPosts} searchTerm="" sortBy="newest" range={[4]} columns="2"/>
       </Column>
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>

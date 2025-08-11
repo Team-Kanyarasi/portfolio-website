@@ -2,6 +2,9 @@
 export {
   company,
   teamMembers,
+  team,
+  person,
+  gallery,
   social,
   newsletter,
   home,

@@ -3,9 +3,9 @@ import { Flex, Heading, Text, Button, Grid, Card, Avatar, Badge, Icon } from "@o
 import { teamMembers, company } from "@/resources/content";
 
 interface TeamMemberPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -15,7 +15,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: TeamMemberPageProps) {
-  const member = teamMembers.find((m) => m.slug === params.slug);
+  const { slug } = await params;
+  const member = teamMembers.find((m) => m.slug === slug);
   
   if (!member) {
     return {
@@ -29,8 +30,9 @@ export async function generateMetadata({ params }: TeamMemberPageProps) {
   };
 }
 
-export default function TeamMemberPage({ params }: TeamMemberPageProps) {
-  const member = teamMembers.find((m) => m.slug === params.slug);
+export default async function TeamMemberPage({ params }: TeamMemberPageProps) {
+  const { slug } = await params;
+  const member = teamMembers.find((m) => m.slug === slug);
 
   if (!member) {
     notFound();

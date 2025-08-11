@@ -127,7 +127,7 @@ const about = {
   },
   studies: {
     display: false,
-    title: "Studies",
+    title: "Studies", 
     institutions: [],
   },
   technical: {
@@ -273,4 +273,41 @@ const testimonials = {
   ]
 };
 
-export { company, social, newsletter, home, about, blog, work, services, contact, testimonials };
+const teamMembers = [
+  {
+    name: "Venkat Kanyaraasi",
+    role: "Lead Developer & Founder",
+    slug: "venkat-kanyaraasi", 
+    bio: "Full-stack developer specializing in modern web technologies and AI integration.",
+    avatar: "/images/team/venkat.jpg",
+    email: company.email,
+    skills: ["React", "Next.js", "TypeScript", "Node.js", "Python", "AI/ML"],
+    social: {
+      github: "https://github.com/venkatkanyaraasi",
+      linkedin: "https://linkedin.com/in/venkatkanyaraasi",
+      twitter: "https://twitter.com/venkatkanyaraasi"
+    }
+  }
+];
+
+const team = {
+  name: company.teamName,
+  email: company.email,
+  members: teamMembers
+};
+
+const person = {
+  name: "DevOtaku Team",
+  role: "Software Development Studio", 
+  avatar: "/images/og/home.jpg"
+};
+
+const gallery = {
+  path: "/gallery",
+  label: "Gallery",
+  title: "Our Work Gallery",
+  description: "A showcase of our development projects and team moments",
+  images: []
+};
+
+export { company, teamMembers, team, person, gallery, social, newsletter, home, about, blog, work, services, contact, testimonials };
