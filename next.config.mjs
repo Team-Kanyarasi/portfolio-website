@@ -10,8 +10,10 @@ const nextConfig = {
   ...(process.env.EXPORT_MODE === 'static' && {
     output: 'export',
     trailingSlash: true,
-    basePath: '/portfolio-website',
-    assetPrefix: '/portfolio-website',
+    ...(process.env.NEXT_PUBLIC_BASE_PATH && {
+      basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+      assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH,
+    }),
     images: {
       unoptimized: true,
     },
