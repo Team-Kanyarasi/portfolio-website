@@ -1,91 +1,157 @@
-# Magic Portfolio
+# DevOtaku Portfolio Website
 
-Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
+Professional portfolio website for DevOtaku - Stockholm-based software development studio specializing in modern web applications, AI agents, and custom software solutions.
 
-View the demo [here](https://demo.magic-portfolio.com).
+🌐 **Live Site**: [https://team-kanyarasi.github.io/portfolio-website/](https://team-kanyarasi.github.io/portfolio-website/)
 
-![Magic Portfolio](public/images/og/home.jpg)
+![DevOtaku Portfolio](public/images/og/home.jpg)
 
-## Getting started
+## 🚀 Quick Start
 
 **1. Clone the repository**
-```
-git clone https://github.com/once-ui-system/magic-portfolio.git
+```bash
+git clone https://github.com/Team-Kanyarasi/portfolio-website.git
+cd portfolio-website
 ```
 
 **2. Install dependencies**
-```
+```bash
 npm install
 ```
 
-**3. Run dev server**
-```
+**3. Run development server**
+```bash
 npm run dev
 ```
 
-**4. Edit config**
-```
-src/resources/once-ui.config.js
-```
+**4. Build for production**
+```bash
+# For regular deployment (VPS/server)
+npm run build
+npm start
 
-**5. Edit content**
-```
-src/resources/content.js
-```
-
-**6. Create blog posts / projects**
-```
-Add a new .mdx file to src/app/blog/posts or src/app/work/projects
+# For static export (GitHub Pages)
+npm run build:static
 ```
 
-Magic Portfolio was built with [Once UI](https://once-ui.com) for [Next.js](https://nextjs.org). It requires Node.js v18.17+.
+## 🏗️ Project Structure
 
-## Documentation
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── about/             # About page
+│   ├── blog/              # Blog with MDX posts
+│   ├── contact/           # Contact form
+│   ├── services/          # Services offered
+│   ├── team/              # Team profiles
+│   └── work/              # Portfolio projects
+├── components/            # React components
+└── resources/
+    ├── content.js         # Business content & team info
+    └── once-ui.config.js  # UI configuration
+```
 
-Docs available at: [docs.once-ui.com](https://docs.once-ui.com/docs/magic-portfolio/quick-start)
+## 📝 Content Management
 
-## Features
+### Update Business Information
+Edit `src/resources/content.js`:
+- **Company details**: Name, location, contact info
+- **Services**: Offerings, pricing, features
+- **Team members**: Profiles, skills, social links
+- **Testimonials**: Client reviews and feedback
 
-### Once UI
-- All tokens, components & features of [Once UI](https://once-ui.com)
+### Add Blog Posts
+Create new `.mdx` files in `src/app/blog/posts/`:
+```markdown
+---
+title: "Your Post Title"
+publishedAt: "2024-01-15"
+summary: "Post summary"
+author: "Author Name"
+---
 
-### SEO
-- Automatic open-graph and X image generation with next/og
-- Automatic schema and metadata generation based on the content file
+Your content here...
+```
 
-### Design
-- Responsive layout optimized for all screen sizes
-- Timeless design without heavy animations and motion
-- Endless customization options through [data attributes](https://once-ui.com/docs/theming)
+### Add Portfolio Projects
+Create new `.mdx` files in `src/app/work/projects/`:
+```markdown
+---
+title: "Project Name"
+publishedAt: "2024-01-15"
+summary: "Project description"
+image: "/images/projects/project-cover.jpg"
+---
 
-### Content
-- Render sections conditionally based on the content file
-- Enable or disable pages for blog, work, gallery and about / CV
-- Generate and display social links automatically
-- Set up password protection for URLs
+Project details...
+```
 
-### Localization
-- A localized, earlier version of Magic Portfolio is available with the next-intl library
-- To use localization, switch to the 'i18n' branch
+## 🎨 Tech Stack
 
-## Creators
+- **Framework**: Next.js 15.3
+- **Styling**: Once UI Design System + Sass
+- **Content**: MDX for blog posts and projects
+- **Deployment**: GitHub Pages (static export)
+- **TypeScript**: Full type safety
+- **SEO**: Automatic sitemap, robots.txt, meta tags
 
-Lorant One: [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://www.linkedin.com/in/lorant-one/)
+## 📦 Available Scripts
 
-## Get involved
+```bash
+npm run dev          # Development server
+npm run build        # Production build
+npm run build:static # Static export (GitHub Pages)
+npm start           # Start production server
+npm run lint        # Run ESLint
+```
 
-- Join the Design Engineers Club on [Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
-- Deployed your docs? Share it on the [Once UI Hub](https://once-ui.com/hub) too! We feature our favorite apps on our landing page.
+## 🌐 Deployment
 
-## License
+### GitHub Pages (Current)
+Automatically deploys on push to `main` branch via GitHub Actions.
 
-Distributed under the CC BY-NC 4.0 License.
-- Attribution is required.
-- Commercial usage is not allowed.
-- You can extend the license to [Dopler CC](https://dopler.app/license) by purchasing a [Once UI Pro](https://once-ui.com/pricing) license.
+### Other Platforms
+- **Vercel**: Connect repository for automatic deployments
+- **Netlify**: Drag & drop the `out/` folder after `npm run build:static`
+- **VPS/Server**: Use `npm run build` and `npm start`
 
-See `LICENSE.txt` for more information.
+## 🔧 Configuration
 
-## Deploy with Vercel
+### Domain & SEO
+Update `src/resources/once-ui.config.js`:
+```javascript
+const baseURL = "https://your-domain.com";
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&project-name=portfolio&repository-name=portfolio&redirect-url=https%3A%2F%2Fgithub.com%2Fonce-ui-system%2Fmagic-portfolio&demo-title=Magic%20Portfolio&demo-description=Showcase%20your%20designers%20or%20developer%20portfolio&demo-url=https%3A%2F%2Fdemo.magic-portfolio.com&demo-image=%2F%2Fraw.githubusercontent.com%2Fonce-ui-system%2Fmagic-portfolio%2Fmain%2Fpublic%2Fimages%2Fog%2Fhome.jpg)
+### Theme & Styling
+Customize colors, fonts, and layout in the Once UI config files.
+
+## 🏢 About DevOtaku
+
+DevOtaku is a Stockholm-based software development team delivering:
+- **Modern Web Applications**: Next.js, React, TypeScript
+- **AI Agent Development**: Custom AI solutions and automation
+- **Full-Stack Development**: End-to-end application development
+- **Technical Consulting**: Architecture planning and code reviews
+
+**Contact**: hello@devotaku.com  
+**Location**: Stockholm, Sweden  
+**Timezone**: CET (UTC+1)
+
+## 📄 License
+
+This project is based on the Magic Portfolio template by Once UI, distributed under CC BY-NC 4.0 License. 
+
+- Attribution is required
+- Commercial usage of the template is not allowed
+- The content and customizations are owned by DevOtaku
+
+## 🤝 Contributing
+
+This is a company portfolio website. For business inquiries or collaboration:
+- **Email**: hello@devotaku.com
+- **GitHub**: [@Team-Kanyarasi](https://github.com/Team-Kanyarasi)
+
+---
+
+Built with ❤️ by Team Kanyaraasi using [Once UI](https://once-ui.com) and [Next.js](https://nextjs.org)
