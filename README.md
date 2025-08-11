@@ -4,8 +4,6 @@ Professional portfolio website for DevOtaku - Stockholm-based software developme
 
 🌐 **Live Site**: [https://team-kanyarasi.github.io/portfolio-website/](https://team-kanyarasi.github.io/portfolio-website/)
 
-![DevOtaku Portfolio](public/images/og/home.jpg)
-
 ## 🚀 Quick Start
 
 **1. Clone the repository**
