@@ -1,7 +1,9 @@
 import { home } from "./content";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://devotaku.com";
+const baseURL = process.env.EXPORT_MODE === 'static' 
+  ? "https://venkatkanyaraasi.github.io/portfolio-website"  // Your GitHub Pages URL
+  : "https://devotaku.com";
 
 const routes = {
   "/": true,
